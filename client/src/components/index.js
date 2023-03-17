@@ -1,0 +1,10 @@
+export { default as FeatureProperties } from "./featureProperties/FeatureProperties";
+export { default as Footer } from "./footer/Footer";
+export { default as Hero } from "./hero/Hero";
+export { default as Navbar } from "./navbar/Navbar";
+export { default as NewsLetter } from "./newsletter/NewsLetter";
+export { default as PopularProperties } from "./popularProperties/PopularProperties";
+export { default as Properties } from "./properties/Properties";
+export { default as PropertyDetail } from "./propertyDetail/PropertyDetail";
+export { default as Signin } from "./signin/Signin";
+export { default as Signup } from "./signup/Signup";
