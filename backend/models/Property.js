@@ -10,16 +10,17 @@ const PropertySchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
-      min: 8,
+      min: 6,
     },
     type: {
       type: String,
       enum: ["beach", "mountain", "village"],
+      required: true,
     },
     desc: {
       type: String,
       required: true,
-      min: 20,
+      min: 50,
     },
     img: {
       type: String,
@@ -32,6 +33,7 @@ const PropertySchema = new mongoose.Schema(
     sqmeters: {
       type: Number,
       required: true,
+      min: 15,
     },
     continent: {
       type: String,
@@ -40,7 +42,7 @@ const PropertySchema = new mongoose.Schema(
     beds: {
       type: Number,
       required: true,
-      min: 2,
+      min: 1,
     },
     featured: {
       type: Boolean,
