@@ -9,6 +9,7 @@ const app = express();
 
 require("./connect/db");
 mongoose.set("strictQuery", false);
+app.use("/images", express.static("public/images"));
 
 app.use(cors());
 app.use(express.json());
