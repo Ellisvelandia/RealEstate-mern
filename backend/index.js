@@ -18,6 +18,6 @@ app.use("/auth", authController);
 app.use("/property", propertyController);
 app.use("/upload", uploadController);
 
-app.listen(4001, () => {
-  console.log(`Node API app is running on port 4001`);
-});
+
+const port = process.env.PORT || 4001;
+app.listen(port, () => console.log("Server has been started"));
