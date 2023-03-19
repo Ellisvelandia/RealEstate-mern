@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const [type, setType] = useState("beach");
   const [continent, setContinent] = useState("0");
   const [priceRange, setPriceRange] = useState("0");
+  const navigate = useNavigate();
 
-  const handleSearch = () => {};
+  const handleSearch = () => {
+    navigate(
+      `/properties?type=${type}&continent=${continent}&priceRange=${priceRange}`
+    );
+  };
 
   return (
     <div className="w-full h-[calc(100vh-60px)] bg-[url('../../assets/estate.jpg')] bg-cover bg-center bg-[rgba(0,0,0,0.4)] bg-blend-darken">
@@ -51,7 +57,10 @@ const Hero = () => {
             <option value="5">Oceania</option>
           </select>
           <div className="lg:w-auto w-full lg:justify-start justify-end flex">
-            <AiOutlineSearch className="lg:w-9 lg:h-9 w-8 h-8 rounded-full p-2 lgradient fill-white cursor-pointer" />
+            <AiOutlineSearch
+              className="lg:w-9 lg:h-9 w-8 h-8 rounded-full p-2 lgradient fill-white cursor-pointer"
+              onClick={handleSearch}
+            />
           </div>
         </div>
       </div>

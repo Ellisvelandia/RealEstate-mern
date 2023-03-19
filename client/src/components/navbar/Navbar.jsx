@@ -83,18 +83,19 @@ const Navbar = () => {
   return (
     <div
       className={`sticky top-0 left-0 h-16 w-full bg-transparent z-50  ${
-        isScrolled && "w-full bg-transparent shadow-lg drop-shadow-lg text-blue-800 font-bold"
+        isScrolled &&
+        "w-full bg-transparent shadow-lg drop-shadow-lg text-blue-800 font-bold"
       }`}
     >
       <div className="md:max-w-7xl w-full h-full my-0 mx-auto justify-between items-center py-1 px-5 text-blue-800 font-bold md:flex hidden">
         <Link
           to="/"
           onClick={scrollToTop}
-          className="text-2xl font-bold flex items-center gap-2 text-[#3512d1]"
+          className="w-full lg:text-2xl text-xl font-bold flex items-center gap-2 text-[#3512d1]"
         >
           Real Estate <BsHouseDoor />
         </Link>
-        <ul className="flex justify-center items-center gap-5 cursor-pointer text-lg">
+        <ul className="w-full flex center items-center gap-5 cursor-pointer text-lg px-6">
           <li
             onClick={scrollToTop}
             className="text-[#222] transition-all duration-150 ease-in-out hover:text-[#555] "
@@ -111,7 +112,7 @@ const Navbar = () => {
             Contacts
           </li>
         </ul>
-        <div className="flex items-center gap-3">
+        <div className="w-1/2 justify-end flex items-center gap-3">
           {!user ? (
             <>
               <Link to="/signup">Sign up</Link>
@@ -120,12 +121,15 @@ const Navbar = () => {
           ) : (
             <>
               <span>{user.username}!</span>
-              <span className="cursor-pointer text-[#222] transition-all ease-in-out duration-150" onClick={handleLogout}>
+              <span
+                className="cursor-pointer text-[#222] transition-all ease-in-out duration-150"
+                onClick={handleLogout}
+              >
                 Logout
               </span>
               <Link
                 onClick={() => setShowForm(true)}
-                className="py-1 px-3 bg-[#2500ac] text-white rounded-xl cursor-pointer transition-all ease-linear duration-150 hover:text-[#efefef] hover:bg-[#340cb8]"
+                className="text-sm py-1 px-3 bg-[#2500ac] text-white rounded-xl cursor-pointer transition-all ease-linear duration-150 hover:text-[#efefef] hover:bg-[#340cb8] whitespace-nowrap"
               >
                 List your property
               </Link>
@@ -135,50 +139,61 @@ const Navbar = () => {
       </div>
       {!showMobileNav && showForm && (
         <div
-          className="absolute top-0 right-0 h-screen w-full bg-[rgba(0,0,0,0.45)] flex items-center justify-center z-50"
+          className="absolute top-0 right-0 h-screen w-screen bg-[rgba(0,0,0,0.45)] flex items-center justify-center z-50"
           onClick={handleCloseForm}
         >
           <div
-            className="relative bg-white h-[87.5] w-[35vw] rounded-2xl"
+            className="relative bg-white h-[87.5] lg:w-[35vw] md:w-3/5 w-3/4 rounded-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-center my-9 mx-0">List Property</h2>
-            <form onSubmit={handleListProperty}>
+            <h2 className="text-center my-9 text-lg font-bold mx-0 mb-4">
+              List Property
+            </h2>
+            <form
+              onSubmit={handleListProperty}
+              className="w-full h-full flex flex-col my-4 items-center justify-center outline-none border-b border-solid border-[#333]"
+            >
               <input
                 type="text"
                 placeholder="Title"
                 name="title"
                 onChange={handleState}
+                className="md:w-1/2 md:text-base text-sm outline-none border-b border-solid border-[#333] my-4"
               />
               <input
                 type="text"
                 placeholder="Type"
                 name="type"
                 onChange={handleState}
+                className="md:w-1/2 md:text-base text-sm outline-none border-b border-solid border-[#333] my-4"
               />
               <input
                 type="text"
                 placeholder="Desc"
                 name="desc"
                 onChange={handleState}
+                className="md:w-1/2 md:text-base text-sm outline-none border-b border-solid border-[#333] my-4"
               />
               <input
                 type="text"
                 placeholder="Continent"
                 name="continent"
                 onChange={handleState}
+                className="md:w-1/2 md:text-base text-sm outline-none border-b border-solid border-[#333] my-4"
               />
               <input
                 type="number"
                 placeholder="Price"
                 name="price"
                 onChange={handleState}
+                className="md:w-1/2 md:text-base text-sm outline-none border-b border-solid border-[#333] my-4"
               />
               <input
                 type="number"
                 placeholder="Sq. meters"
                 name="sqmeters"
                 onChange={handleState}
+                className="md:w-1/2 md:text-base text-sm outline-none border-b border-solid border-[#333] my-4"
               />
               <input
                 type="number"
@@ -187,6 +202,7 @@ const Navbar = () => {
                 step={1}
                 min={1}
                 onChange={handleState}
+                className="md:w-1/2 md:text-base text-sm outline-none border-b border-solid border-[#333] my-4"
               />
               <div
                 style={{
@@ -198,7 +214,7 @@ const Navbar = () => {
               >
                 <label
                   htmlFor="photo"
-                  className="flex items-center gap-3 text-lg mr-4"
+                  className="flex items-center whitespace-nowrap gap-3 lg:text-base text-sm mr-4"
                 >
                   Property picture <AiOutlineFileImage />
                 </label>
@@ -210,7 +226,9 @@ const Navbar = () => {
                 />
                 {photo && <p>{photo.name}</p>}
               </div>
-              <button>List property</button>
+              <button className="mt-4 outline-none bg-blue-700 text-white text-base rounded-xl py-2 px-5 cursor-pointer border-solid border border-transparent hover:bg-white hover:text-blue-700 hover:border-blue-700 my-4">
+                List property
+              </button>
             </form>
             <AiOutlineClose
               onClick={handleCloseForm}
@@ -258,21 +276,21 @@ const Navbar = () => {
                     <Link to="/signin">Sign in</Link>
                   </>
                 ) : (
-                  <>
-                    <span>Hello {user.username}!</span>
+                  <div className="w-full justify-center items-center px-8 flex flex-col">
+                    <span>{user.username}!</span>
                     <span
-                      className="w-8 h-8 object-cover rounded-[50%] mr-4"
+                      className="object-cover rounded-[50%] py-1"
                       onClick={handleLogout}
                     >
                       Logout
                     </span>
                     <Link
                       onClick={() => setShowForm(true)}
-                      className="py-1 px-3 bg-[#2500ac] text-white rounded-xl cursor-pointer transition-all ease-linear duration-150 hover:text-[#efefef] hover:bg-[#340cb8]"
+                      className="py-1 px-1 bg-[#2500ac]  text-white rounded-xl cursor-pointer transition-all ease-linear duration-150 hover:text-[#efefef] hover:bg-[#340cb8] white"
                     >
                       List your property
                     </Link>
-                  </>
+                  </div>
                 )}
               </div>
               {showForm && (
@@ -281,46 +299,55 @@ const Navbar = () => {
                   onClick={handleCloseForm}
                 >
                   <div
-                    className="relative bg-white h-[87.5] w-[35vw] rounded-2xl"
+                    className="relative bg-white h-[87.5] lg:w-[35vw] md:w-3/5 w-3/4 rounded-2xl"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <h2 className="text-center my-9 mx-0">List Property</h2>
-                    <form onSubmit={handleListProperty}>
+                    <form
+                      onSubmit={handleListProperty}
+                      className="w-full h-full flex flex-col my-4 items-center justify-center outline-none border-b border-solid border-[#333]"
+                    >
                       <input
                         type="text"
                         placeholder="Title"
                         name="title"
                         onChange={handleState}
+                        className="md:w-1/2 md:text-base text-sm outline-none border-b border-solid border-[#333] my-4"
                       />
                       <input
                         type="text"
                         placeholder="Type"
                         name="type"
                         onChange={handleState}
+                        className="md:w-1/2 md:text-base text-sm outline-none border-b border-solid border-[#333] my-4"
                       />
                       <input
                         type="text"
                         placeholder="Desc"
                         name="desc"
                         onChange={handleState}
+                        className="md:w-1/2 md:text-base text-sm outline-none border-b border-solid border-[#333] my-4"
                       />
                       <input
                         type="text"
                         placeholder="Continent"
                         name="continent"
                         onChange={handleState}
+                        className="md:w-1/2 md:text-base text-sm outline-none border-b border-solid border-[#333] my-4"
                       />
                       <input
                         type="number"
                         placeholder="Price"
                         name="price"
                         onChange={handleState}
+                        className="md:w-1/2 md:text-base text-sm outline-none border-b border-solid border-[#333] my-4"
                       />
                       <input
                         type="number"
                         placeholder="Sq. meters"
                         name="sqmeters"
                         onChange={handleState}
+                        className="md:w-1/2 md:text-base text-sm outline-none border-b border-solid border-[#333] my-4"
                       />
                       <input
                         type="number"
@@ -329,6 +356,7 @@ const Navbar = () => {
                         step={1}
                         min={1}
                         onChange={handleState}
+                        className="md:w-1/2 md:text-base text-sm outline-none border-b border-solid border-[#333] my-4"
                       />
                       <div
                         style={{
@@ -338,7 +366,7 @@ const Navbar = () => {
                           width: "50%",
                         }}
                       >
-                        <label htmlFor="photo">
+                        <label htmlFor="photo" className="flex items-center whitespace-nowrap gap-3 lg:text-lg text-sm mr-4 my-2">
                           Property picture <AiOutlineFileImage />
                         </label>
                         <input
@@ -349,7 +377,7 @@ const Navbar = () => {
                         />
                         {photo && <p>{photo.name}</p>}
                       </div>
-                      <button>List property</button>
+                      <button className="mt-2 outline-none bg-blue-700 text-white lg:text-lg md:text-base text-sm rounded-xl py-2 px-5 cursor-pointer border-solid border border-transparent hover:bg-white hover:text-blue-700 hover:border-blue-700 my-4">List property</button>
                     </form>
                     <AiOutlineClose
                       onClick={handleCloseForm}

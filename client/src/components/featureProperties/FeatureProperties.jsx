@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { request } from "../../util/fetchAPI";
-import img from "/assets/estate3.jpg";
 import person from "/assets/person.jpg";
 import { FaSquareFull, FaBed } from "react-icons/fa";
 
@@ -29,10 +28,10 @@ const FeatureProperties = () => {
           </h5>
           <h2 className="text-[#333] text-xl">Our featured properties</h2>
         </div>
-        <div className="w-full mt-12 flex flex-wrap gap-8">
+        <div className="mt-12 grid px-4 md:grid-cols-3 grid-cols-1 place-content-center lg:gap-12 gap-10 font-bold">
           {featuredProperties?.map((property) => (
             <div
-              className="w-4/5 h-[350px] mb-2 overflow-hidden cursor-pointer inline-block"
+              className="relative lg:p-4 px-6 py-4 transform -rotate-1 rounded-md shadow-md transition-all duration-150 ease-in-out hover:transform hover:rotate-0"
               key={property._id}
             >
               <Link
@@ -40,32 +39,32 @@ const FeatureProperties = () => {
                 className="w-full h-full object-cover transition-all duration-150 ease-out"
               >
                 <img
-                  src={img}
+                  src={`http://localhost:4001/images/${property?.img}`}
                   alt="Property images"
-                  className="object-cover hover:scale-105 rounded w-9 h-9"
+                  className="relative lg:h-[400px] h-[200px] lg:w-[800px] w-full object-fill rounded-md transform rotate-1 transition-all duration-150 cursor-pointer hover:transform hover:rotate-0"
                 />
               </Link>
-              <div className="flex flex-col gap-4 py-0 px-2">
-                <div className="w-4/5 flex justify-between items-center">
-                  <span className="font-bold text-lg">$ {property?.price}</span>
+              <div className="flex flex-col gap-4 py-0 px-2 mt-4">
+                <div className="w-full flex justify-between items-end">
+                  <span className="font-bold lg:text-lg text-base">$ {property?.price}</span>
                   <img
-                    src={person}
+                    src={`http://localhost:4001/images/${property?.currentOwner?.profileImg}`}
                     alt="person image"
-                    className="object-cover hover:scale-105 rounded w-9 h-9"
+                    className="object-cover hover:scale-105 rounded-[50%] w-10 h-10"
                   />
                 </div>
               </div>
               <div className="flex items-center gap-5 mb-2">
                 <span className="flex items-center gap-4 text-[#2c2cdc] pr-5 border-none">
                   {property?.beds}
-                  <FaBed className="w-8 h-8" />
+                  <FaBed className="w-7 h-7" />
                 </span>
                 <span className="flex items-center gap-4 text-[#2c2cdc] border-solid border border-[#07077b5] pr-5">
                   {property?.sqmeters}
-                  <FaSquareFull className="w-8 h-8" />
+                  <FaSquareFull className="w-7 h-7" />
                 </span>
               </div>
-              <div className="overflow-hidden text-ellipsis whitespace-nowrap max-w-[250px] text-lg text-[#222]">
+              <div className="overflow-hidden text-ellipsis whitespace-nowrap max-w-[250px] md:text-base text-sm text-[#222]">
                 {property?.desc}
               </div>
             </div>

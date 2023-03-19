@@ -44,8 +44,8 @@ const Signup = () => {
 
   return (
     <div className="absolute top-0 left-0 h-screen w-screen bg-[url('../../assets/estate3.jpg')] bg-cover bg-blend-darken flex justify-center items-center">
-      <div className="h-[67.5vh] w-[27.5vw] rounded-2xl flex flex-col bg-white">
-        <h2 className="text-[#171097] text-center my-10 mx-0 text-4xl">
+      <div className="lg:h-[67.5vh] md:w-1/2 w-4/5 h-auto py-4 lg:w-[27.5vw] rounded-2xl flex flex-col bg-white">
+        <h2 className="text-[#171097] text-center my-10 mx-0 lg:text-4xl text-2xl">
           Sign up
         </h2>
         <form
@@ -53,21 +53,21 @@ const Signup = () => {
           onSubmit={handleSubmit}
         >
           <input
-            className="w-1/2 outline-none border-b border-solid border-[#333]"
+            className="lg:w-1/2 outline-none border-b border-solid border-[#333]"
             type="text"
             name="username"
             placeholder="Username..."
             onChange={handleState}
           />
           <input
-            className="w-1/2 outline-none border-b border-solid border-[#333]"
+            className="lg:w-1/2 outline-none border-b border-solid border-[#333]"
             type="email"
             name="email"
             placeholder="Email..."
             onChange={handleState}
           />
           <label
-            className="self-center w-1/2 cursor-pointer transition-all ease-in-out duration-150 flex items-center gap-3 hover:text-[#444]"
+            className="self-center lg:w-1/2 text-base cursor-pointer transition-all ease-in-out duration-150 flex items-center gap-3 hover:text-[#444]"
             htmlFor="photo"
           >
             Upload photo <AiOutlineFileImage />
@@ -80,21 +80,21 @@ const Signup = () => {
             onChange={(e) => setPhoto(e.target.files[0])}
           />
           <input
-            className="w-1/2 outline-none border-b border-solid border-[#333]"
+            className="lg:w-1/2 outline-none border-b border-solid border-[#333]"
             type="password"
             name="password"
             placeholder="Password..."
             onChange={handleState}
           />
           <button
-            className="outline-none bg-blue-700 text-white rounded-xl py-2 px-5 cursor-pointer border-solid border border-transparent hover:bg-white hover:text-blue-700 hover:border-blue-700"
+            className="outline-none bg-blue-700 text-white rounded-xl py-2 px-3 cursor-pointer border-solid border border-transparent hover:bg-white hover:text-blue-700 hover:border-blue-700"
             type="submit"
           >
             Register
           </button>
-          <p className="text-center text-base text-black flex flex-col justify-center">
+          <p className="text-center md:text-base text-sm text-black flex flex-col justify-center">
             Already have an account?{" "}
-            <Link to="/signin" className="text-base text-[#888] pt-1">
+            <Link to="/signin" className="md:text-base text-sm text-[#888] pt-1">
               Sign in
             </Link>
           </p>
