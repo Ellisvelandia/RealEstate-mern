@@ -1,13 +1,13 @@
-import React from 'react'
-import emailjs from '@emailjs/browser'
-import { useSelector } from 'react-redux'
-import { AiOutlineClose } from 'react-icons/ai'
-import { useParams } from 'react-router-dom'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import { request } from '../../util/fetchAPI'
-import { FaBed, FaSquareFull } from 'react-icons/fa'
-import { useRef } from 'react'
+import React from "react";
+import emailjs from "@emailjs/browser";
+import { useSelector } from "react-redux";
+import { AiOutlineClose } from "react-icons/ai";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
+import { request } from "../../util/fetchAPI";
+import { FaBed, FaSquareFull } from "react-icons/fa";
+import { useRef } from "react";
 
 const PropertyDetail = () => {
   const { user } = useSelector((state) => state.auth);
@@ -18,9 +18,9 @@ const PropertyDetail = () => {
   const { id } = useParams();
   const formRef = useRef();
 
-  const serviceID = import.meta.env.vITE_APP_SERVICE_ID;
-  const templateID = import.meta.env.vITE_APP_TEMPLATE_ID;
-  const publicKey = import.meta.env.vITE_APP_PUBLIC_KEY;
+  const serviceID = import.meta.env.VITE_APP_SERVICE_ID
+  const templateID = import.meta.env.VITE_APP_TEMPLATE_ID;
+  const publicKey = import.meta.env.VITE_APP_PUBLIC_KEY;
 
   useEffect(() => {
     const fetchDetails = async () => {
