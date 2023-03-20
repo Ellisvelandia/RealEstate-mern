@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:4001"
+const BASE_URL = "https://mern-estate.onrender.com"
 
 export const request = async (url, method, headers = {}, body = {}, isNotStringified = false) => {
     let res

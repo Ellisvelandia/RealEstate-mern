@@ -142,7 +142,7 @@ const Properties = () => {
                     className="w-full h-full object-cover transition-all duration-150 ease-out"
                   >
                     <img
-                      src={`http://localhost:4001/images/${property?.img}`}
+                      src={`https://mern-estate.onrender.com/images/${property?.img}`}
                       alt="Property images"
                       className="relative lg:h-[400px] h-[200px] lg:w-[800px] w-full object-fill rounded-md transform rotate-1 transition-all duration-150 cursor-pointer hover:transform hover:rotate-0"
                     />

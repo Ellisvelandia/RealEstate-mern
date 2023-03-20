@@ -39,7 +39,7 @@ const FeatureProperties = () => {
                 className="w-full h-full object-cover transition-all duration-150 ease-out"
               >
                 <img
-                  src={`http://localhost:4001/images/${property?.img}`}
+                  src={`https://mern-estate.onrender.com/images/${property?.img}`}
                   alt="Property images"
                   className="relative lg:h-[400px] h-[200px] lg:w-[800px] w-full object-fill rounded-md transform rotate-1 transition-all duration-150 cursor-pointer hover:transform hover:rotate-0"
                 />
@@ -48,7 +48,7 @@ const FeatureProperties = () => {
                 <div className="w-full flex justify-between items-end">
                   <span className="font-bold lg:text-lg text-base">$ {property?.price}</span>
                   <img
-                    src={`http://localhost:4001/images/${property?.currentOwner?.profileImg}`}
+                    src={`https://mern-estate.onrender.com/images/${property?.currentOwner?.profileImg}`}
                     alt="person image"
                     className="object-cover hover:scale-105 rounded-[50%] w-10 h-10"
                   />

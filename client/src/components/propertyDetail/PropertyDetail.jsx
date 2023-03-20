@@ -18,9 +18,9 @@ const PropertyDetail = () => {
   const { id } = useParams();
   const formRef = useRef();
 
-  const serviceID = import.meta.env.REACT_APP_SERVICE_ID;
-  const templateID = import.meta.env.REACT_APP_TEMPLATE_ID;
-  const publicKey = import.meta.env.REACT_APP_PUBLIC_KEY;
+  const serviceID = import.meta.env.vITE_APP_SERVICE_ID;
+  const templateID = import.meta.env.vITE_APP_TEMPLATE_ID;
+  const publicKey = import.meta.env.vITE_APP_PUBLIC_KEY;
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -59,7 +59,7 @@ const PropertyDetail = () => {
       <div className="max-w-6xl h-full my-0 mx-auto flex md:flex-row flex-col items-start gap-11">
         <div className="flex-1 h-full w-full">
           <img
-            src={`http://localhost:4001/images/${propertyDetail?.img}`}
+            src={`https://mern-estate.onrender.com/images/${propertyDetail?.img}`}
             className="md:h-4/6 w-full object-cover"
           />
         </div>
